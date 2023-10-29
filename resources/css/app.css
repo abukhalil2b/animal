@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("../fonts/HelveticaNeueLTW20-Light.woff");
+}
+
+body {
+    font-family: "Helvetica";
+}
+
+select {
+    background-image: none;
+    -webkit-appearance: menulist;
+    padding: 0;
+}
+
+@layer components {
+    .card {
+        background-color: theme("colors.white");
+        border-radius: theme("borderRadius.sm");
+        padding: theme("spacing.3");
+        box-shadow: theme("boxShadow.sm");
+    }
+
+    .colorBox {
+        @apply w-8 h-8 rounded cursor-pointer;
+    }
+    
+    .btn-primary {
+        @apply w-32 h-8 flex justify-center items-center bg-green-700 hover:bg-green-500  text-white text-xs rounded p-1;
+    }
+
+    .btn-secondary {
+        @apply w-32 h-8 flex justify-center items-center bg-[#bb7d2b] hover:bg-[#c99960]  text-white text-xs rounded p-1;
+    }
+
+    .input {
+        @apply p-[2px] h-10 w-full border rounded outline-none focus-visible:border-black;
+    }
+
+    .option {
+        @apply p-1 h-10 w-32 border rounded flex justify-center items-center text-xs hover:cursor-pointer;
+    }
+
+    .option-selected {
+        @apply border-yellow-800 text-yellow-800 bg-[#e3ccb4];
+    }
+
+    .input_checkbox {
+        @apply h-4 w-4 rounded-full;
+    }
+}
+
+/* alpine */
+[x-cloak] {
+    display: none !important;
+}
+/* end alpine */
+
+/* loader */
+.loader {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    border-top: 2px solid #ff9400;
+    width: 36px;
+    height: 36px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+}
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
