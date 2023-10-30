@@ -57,7 +57,9 @@ class AnimalController extends Controller
 
         $femaleSons = $animal->femaleSons;
         
-        $sons = $animal->sons;
+        $sons = Animal::where('parent_id',$animal->id)
+        ->latest('dob')
+        ->get();
 
         return view('normal.animal.show', compact('animal','maleSons','femaleSons','sons'));
     }

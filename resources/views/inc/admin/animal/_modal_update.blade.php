@@ -1,33 +1,33 @@
 <div>
 
-    <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'admin.create.animal')" class="text-xs">
-        + جديد
-    </x-primary-button>
+    <x-secondary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'admin.animal.update')" class="text-xs">
+    edit
+    </x-secondary-button>
 
 
-    <x-modal name="admin.create.animal" :show="$errors->isNotEmpty()" focusable>
+    <x-modal name="admin.animal.update" :show="$errors->isNotEmpty()" focusable>
 
-        <form action="{{ route('admin.animal.store') }}" method="POST" class="p-1">
+        <form action="{{ route('admin.animal.update',$animal->id) }}" method="POST" class="p-1">
             @csrf
 
             <div class="p-3">
 
-                <div x-data="{ gender:'female' }" class="flex gap-2">
+                <div x-data="{ gender:'{{ $animal->gender }}' }" class="flex gap-2">
                     <div class="option w-12" :class=" gender == 'male' ? 'option-selected' : '' " @click="gender='male' "> {{ __('male') }} </div>
                     <div class="option w-12" :class=" gender == 'female' ? 'option-selected' : '' " @click="gender='female' "> {{ __('female') }}</div>
                     <input type="hidden" name="gender" x-model="gender">
                 </div>
 
                 <div class="mt-4">
-                    الرقم
+                    number
                 </div>
-                <input class="input" name="number" type="number">
+                <input class="input" name="number" type="number" value="{{ $animal->number }}">
 
 
                 <div class="mt-4">
-                    اللون
+                    color
                 </div>
-                <div x-data="{ color:'' }">
+                <div x-data="{ color:'{{ $animal->color }}' }">
                     <div class="flex gap-3 flex-wrap">
                         <div>
                             <div @click="color = '#000' " class="colorBox bg-[#000]" :class="color != '#000'? 'opacity-10' : '' "></div>
@@ -54,16 +54,16 @@
                 </div>
 
                 <div class="mt-4">
-                    ملحوظة
+                    note
                 </div>
-                <input class="input" name="note">
+                <input class="input" name="note" value="{{ $animal->note }}">
 
                 <div class="mt-4 flex justify-between gap-4">
                     <button class="btn-secondary h-10 w-full">
-                        حفظ
+                        save
                     </button>
                     <x-secondary-button class="w-32 text-xs" x-on:click.prevent="show = false">
-                        لا
+                        cancel
                     </x-secondary-button>
                 </div>
 

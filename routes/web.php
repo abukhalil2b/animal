@@ -20,8 +20,20 @@ Route::get('/dashboard', function () {
     $animals = \App\Models\Animal::all();
 
     return view('dashboard', compact('animals'));
-
 })->middleware(['auth'])->name('dashboard');
+
+
+/*
+|--------------------------------------------------------------------------
+| admin
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth', 'prefix' => 'admin/user'], function () {
+
+    Route::get('index', [ProfileController::class, 'index'])
+        ->name('admin.user.index');
+
+});
 
 
 /*
@@ -32,14 +44,16 @@ Route::get('/dashboard', function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'admin/animal'], function () {
 
     Route::get('show/{animal}', [AdminAnimalController::class, 'show'])
-    ->name('admin.animal.show');
+        ->name('admin.animal.show');
 
     Route::post('store', [AdminAnimalController::class, 'store'])
         ->name('admin.animal.store');
 
-        Route::post('delete/{animal}', [AdminAnimalController::class, 'delete'])
+    Route::post('delete/{animal}', [AdminAnimalController::class, 'delete'])
         ->name('admin.animal.delete');
-        
+
+    Route::post('update/{animal}', [AdminAnimalController::class, 'update'])
+        ->name('admin.animal.update');
 });
 
 /*
@@ -50,7 +64,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin/animal'], function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'normal/animal'], function () {
 
     Route::get('show/{animal}', [NormalAnimalController::class, 'show'])
-    ->name('normal.animal.show');
+        ->name('normal.animal.show');
 
     Route::post('store', [NormalAnimalController::class, 'store'])
         ->name('normal.animal.store');

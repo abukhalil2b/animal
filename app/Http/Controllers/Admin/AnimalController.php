@@ -48,8 +48,12 @@ class AnimalController extends Controller
         $maleSons = $animal->maleSons;
 
         $femaleSons = $animal->femaleSons;
+
+        $sons = Animal::where('parent_id',$animal->id)
+        ->latest('dob')
+        ->get();
         
-        return view('admin.animal.show', compact('animal','maleSons','femaleSons'));
+        return view('admin.animal.show', compact('animal','maleSons','femaleSons','sons'));
     }
 
     /**
@@ -65,7 +69,14 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $animal->update([
+            'gender'=>$request->gender,
+            'color'=>$request->color,
+            'number'=>$request->number,
+            'note'=>$request->note
+        ]);
+
+        return back();
     }
 
     /**

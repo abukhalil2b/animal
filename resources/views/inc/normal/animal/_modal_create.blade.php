@@ -1,4 +1,4 @@
-<div>
+<div class="mt-4">
 
     <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'normal.create.animal')" class="text-xs">
         + جديد
@@ -47,7 +47,7 @@
                             blue
                         </div>
                         <div>
-                            <div @click="color = '#ff0' " class="colorBox bg-[#ff0]" :class="color != '#ff0'? 'opacity-10' : '' "></div>
+                            <div @click="color = '#e1e11a' " class="colorBox bg-[#e1e11a]" :class="color != '#e1e11a'? 'opacity-10' : '' "></div>
                             yellow
                         </div>
                         <div>
