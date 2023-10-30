@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <div class="py-3">
+    <div class="p-3">
 
         <div class="mt-3 max-w-7xl mx-auto sm:px-6 lg:px-8">
 

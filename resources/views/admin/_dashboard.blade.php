@@ -1,8 +1,8 @@
 @include('inc.admin.animal._modal_create')
 
-    <div class="p-6 text-gray-900">
+<div class="p-6 text-gray-900">
     animals
-    </div>
+</div>
 
 
 @foreach($animals as $animal)

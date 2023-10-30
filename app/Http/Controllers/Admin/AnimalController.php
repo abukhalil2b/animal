@@ -86,6 +86,6 @@ class AnimalController extends Controller
     {
         $animal->delete();
 
-        return back();
+        return redirect()->route('dashboard');
     }
 }
