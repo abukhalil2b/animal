@@ -40,9 +40,6 @@ class AnimalController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Animal $animal)
     {
         $maleSons = $animal->maleSons;
@@ -54,6 +51,13 @@ class AnimalController extends Controller
         ->get();
         
         return view('admin.animal.show', compact('animal','maleSons','femaleSons','sons'));
+    }
+
+    public function sonShow(Animal $animal)
+    {
+
+
+        return view('admin.animal.son.show', compact('animal'));
     }
 
     /**

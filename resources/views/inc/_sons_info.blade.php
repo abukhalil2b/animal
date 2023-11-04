@@ -5,7 +5,7 @@
 
     @foreach($sons as $son)
 
-    <div class="mt-1 p-2 text-white bg-[{{ $son->color }}] w-full">
+    <div class="mt-1 p-2  bg-[{{ $son->color }}] {{ $son->color != '#fff' ? 'text-white' : 'text-black' }} w-full">
         <div>
             number:{{ $son->number }}
         </div>
@@ -24,7 +24,7 @@
 
         @if(auth()->user()->user_type == 'admin')
         <div class="mt-2 border rounded p-1 w-16 text-center">
-            <a href="{{ route('admin.animal.show',$son->id) }}">show</a>
+            <a href="{{ route('admin.animal.son.show',$son->id) }}">show</a>
         </div>
         @endif
 

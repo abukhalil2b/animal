@@ -57,6 +57,10 @@ class AnimalController extends Controller
 
         $femaleSons = $animal->femaleSons;
         
+        // $birthDates = Animal::where('parent_id',$animal->id)
+        // ->select('DISTINCT dob')
+        // ->get();
+
         $sons = Animal::where('parent_id',$animal->id)
         ->latest('dob')
         ->get();

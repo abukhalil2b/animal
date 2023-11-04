@@ -10,7 +10,7 @@
         <form action="{{ route('normal.animal.store') }}" method="POST" class="p-1">
             @csrf
 
-            <div class="p-3">
+            <div class="p-3 bg-gray-100">
 
                 <div class="mt-4">
                     تاريخ الميلاد
@@ -32,10 +32,11 @@
                 <div class="mt-4">
                     اللون
                 </div>
+                
                 <div x-data="{ color:'' }">
                     <div class="flex gap-3 flex-wrap">
                         <div>
-                            <div @click="color = '#000' " class="colorBox bg-[#000]" :class="color != '#000'? 'opacity-10' : '' "></div>
+                            <div @click="color = '#fff' " class="colorBox bg-[#fff]" :class="color != '#fff'? 'opacity-10' : '' "></div>
                             black
                         </div>
                         <div>
@@ -65,9 +66,14 @@
 
                 <input type="hidden" name="parent_id" value="{{ $animal->id }}">
 
-                <button class="btn-secondary mt-4 h-10 w-full">
-                    حفظ
-                </button>
+                <div class="mt-4 flex justify-between gap-4">
+                    <button class="btn-secondary h-10 w-full">
+                        save
+                    </button>
+                    <x-secondary-button class="w-32 text-xs" x-on:click.prevent="show = false">
+                        cancel
+                    </x-secondary-button>
+                </div>
 
             </div>
 

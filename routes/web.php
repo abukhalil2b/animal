@@ -54,6 +54,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin/animal'], function () {
 
     Route::post('update/{animal}', [AdminAnimalController::class, 'update'])
         ->name('admin.animal.update');
+
+        Route::get('son/show/{animal}', [AdminAnimalController::class, 'sonShow'])
+        ->name('admin.animal.son.show');
 });
 
 /*

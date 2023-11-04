@@ -3,7 +3,7 @@
     <!-- admin -->
     @if(auth()->user()->user_type == 'admin')
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl text-gray-800 leading-tight">
             Admin Dashboard
         </h2>
     </x-slot>
@@ -20,7 +20,7 @@
     <!-- normal -->
     @if(auth()->user()->user_type == 'normal')
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl text-gray-800 leading-tight">
             Normal Dashboard
         </h2>
     </x-slot>

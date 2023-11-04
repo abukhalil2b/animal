@@ -30,16 +30,20 @@
                 <div x-data="{ color:'' }">
                     <div class="flex gap-3 flex-wrap">
                         <div>
-                            <div @click="color = '#000' " class="colorBox bg-[#000]" :class="color != '#000'? 'opacity-10' : '' "></div>
-                            black
+                            <div @click="color = '#fff' " class="colorBox bg-[#fff]" :class="color != '#fff'? 'opacity-10' : '' "></div>
+                            white
                         </div>
                         <div>
                             <div @click="color = '#f00' " class="colorBox bg-[#f00]" :class="color != '#f00'? 'opacity-10' : '' "></div>
                             red
                         </div>
                         <div>
-                            <div @click="color = '#00f' " class="colorBox bg-[#00f]" :class="color != '#00f'? 'opacity-10' : '' "></div>
+                            <div @click="color = '#3c3ce9' " class="colorBox bg-[#3c3ce9]" :class="color != '#3c3ce9'? 'opacity-10' : '' "></div>
                             blue
+                        </div>
+                        <div>
+                            <div @click="color = '#7e22ce' " class="colorBox bg-[#7e22ce]" :class="color != '#7e22ce'? 'opacity-10' : '' "></div>
+                            purple
                         </div>
                         <div>
                             <div @click="color = '#e1e11a' " class="colorBox bg-[#e1e11a]" :class="color != '#e1e11a'? 'opacity-10' : '' "></div>

@@ -15,8 +15,6 @@
             @include('inc.normal.animal._modal_create')
             @include('inc._sons_info')
 
-
-
         </div>
 
 
